@@ -1,0 +1,33 @@
+{
+  "playBuildId" : "e110efa0-fe1c-4ea0-81de-c3e2b7a6cce2",
+  "appName" : "java-bench",
+  "appsCommit" : "67ad71742b79b5665e90769ee02eafa04c8015b1",
+  "javaVersionExecution" : {
+    "command" : {
+      "program" : "<java8.home>/bin/java",
+      "args" : [ "-version" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412618427634,
+    "endTime" : 1412618427708,
+    "stdout" : "",
+    "stderr" : "java version \"1.8.0_20\"\nJava(TM) SE Runtime Environment (build 1.8.0_20-b26)\nJava HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)\n",
+    "returnCode" : 0
+  },
+  "buildExecutions" : [ {
+    "command" : {
+      "program" : "sbt",
+      "args" : [ "-Dsbt.ivy.home=<ivy.home>", "stage" ],
+      "workingDir" : "<tests.home>/java-bench",
+      "env" : {
+        "JAVA_HOME" : "<java8.home>"
+      }
+    },
+    "startTime" : 1412618427797,
+    "endTime" : 1412618462994,
+    "stdout" : null,
+    "stderr" : null,
+    "returnCode" : 0
+  } ]
+}
