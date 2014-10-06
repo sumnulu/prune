@@ -1,0 +1,32 @@
+{
+  "pruneInstanceId" : "9f438cb9-274a-4073-b00f-b7734ebe4ac1",
+  "playCommit" : "1109ee4bacc410ddd38a3f297cacee4540013b36",
+  "javaVersionExecution" : {
+    "command" : {
+      "program" : "<java8.home>/bin/java",
+      "args" : [ "-version" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412575372091,
+    "endTime" : 1412575372167,
+    "stdout" : "",
+    "stderr" : "java version \"1.8.0_20\"\nJava(TM) SE Runtime Environment (build 1.8.0_20-b26)\nJava HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)\n",
+    "returnCode" : 0
+  },
+  "buildExecutions" : [ {
+    "command" : {
+      "program" : "./build",
+      "args" : [ "-Dsbt.ivy.home=<ivy.home>", "publish-local" ],
+      "workingDir" : "<play.home>/framework",
+      "env" : {
+        "JAVA_HOME" : "<java8.home>"
+      }
+    },
+    "startTime" : 1412575372898,
+    "endTime" : 1412575404155,
+    "stdout" : null,
+    "stderr" : null,
+    "returnCode" : 0
+  } ]
+}
