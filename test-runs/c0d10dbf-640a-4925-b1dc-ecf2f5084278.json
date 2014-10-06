@@ -1,0 +1,58 @@
+{
+  "appBuildId" : "31ba8dcc-413d-4988-a9a9-f4c5386152ac",
+  "testName" : "scala-download-chunked-50k",
+  "javaVersionExecution" : {
+    "command" : {
+      "program" : "<java8.home>/bin/java",
+      "args" : [ "-version" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412559254694,
+    "endTime" : 1412559254767,
+    "stdout" : "",
+    "stderr" : "java version \"1.8.0_20\"\nJava(TM) SE Runtime Environment (build 1.8.0_20-b26)\nJava HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)\n",
+    "returnCode" : 0
+  },
+  "serverExecution" : {
+    "command" : {
+      "program" : "bin/scala-bench",
+      "args" : [ ],
+      "workingDir" : "<tests.home>/scala-bench/target/universal/stage",
+      "env" : {
+        "JAVA_HOME" : "<java8.home>",
+        "JAVA_OPTS" : "-Xms1g -Xmx1g"
+      }
+    },
+    "startTime" : 1412559254768,
+    "endTime" : 1412559406576,
+    "stdout" : "[\u001B[37minfo\u001B[0m] play - Application started (Prod)\n[\u001B[37minfo\u001B[0m] play - Listening for HTTP on /0:0:0:0:0:0:0:0:9000\n",
+    "stderr" : "",
+    "returnCode" : 143
+  },
+  "wrkExecutions" : [ {
+    "command" : {
+      "program" : "wrk",
+      "args" : [ "-t16", "-c32", "-d30s", "-s<assets.home>/wrk_report.lua", "<server.url>/download-chunked/51200" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412559256432,
+    "endTime" : 1412559286446,
+    "stdout" : "Running 30s test @ http://localhost:9000/download-chunked/51200\n  16 threads and 32 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency    40.47ms    4.20ms  95.97ms   98.37%\n    Req/Sec    49.04      1.93    50.00     93.47%\n  23004 requests in 30.00s, 1.10GB read\nRequests/sec:    766.78\nTransfer/sec:     37.55MB\nJSON: {\n\"summary\":{\n\"duration\":30000726,\n\"requests\":23004,\n\"bytes\":1181371830,\n\"errors\":{\"connect\":0,\"read\":0,\"write\":0,\"status\":0,\"timeout\":0}\n},\n\"latency\":{\n\"min\":39831,\n\"mean\":40467.7,\n\"max\":95969,\n\"stdev\":4202.77,\n\"percentile\":[[1,39849],[5,39898],[10,39929],[25,39952],[50,39964],[75,39972],[90,39983],[95,40005],[99,60117]]\n},\n\"requests\":{\n\"min\":40,\n\"mean\":49.0449,\n\"max\":50,\n\"stdev\":1.92748,\n\"percentile\":[[1,40],[5,44],[10,49],[25,49],[50,49],[75,50],[90,50],[95,50],[99,50]]\n}\n}\n",
+    "stderr" : "",
+    "returnCode" : 0
+  }, {
+    "command" : {
+      "program" : "wrk",
+      "args" : [ "-t16", "-c32", "-d120s", "-s<assets.home>/wrk_report.lua", "<server.url>/download-chunked/51200" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412559286447,
+    "endTime" : 1412559406475,
+    "stdout" : "Running 2m test @ http://localhost:9000/download-chunked/51200\n  16 threads and 32 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency    39.97ms  374.97us  55.96ms   99.73%\n    Req/Sec    49.89      2.91    69.00     91.74%\n  95935 requests in 2.00m, 4.59GB read\nRequests/sec:    799.46\nTransfer/sec:     39.15MB\nJSON: {\n\"summary\":{\n\"duration\":119999852,\n\"requests\":95935,\n\"bytes\":4926743147,\n\"errors\":{\"connect\":0,\"read\":0,\"write\":0,\"status\":0,\"timeout\":0}\n},\n\"latency\":{\n\"min\":39632,\n\"mean\":39974.6,\n\"max\":55955,\n\"stdev\":374.967,\n\"percentile\":[[1,39880],[5,39912],[10,39928],[25,39948],[50,39962],[75,39971],[90,39978],[95,39986],[99,40022]]\n},\n\"requests\":{\n\"min\":25,\n\"mean\":49.8905,\n\"max\":69,\n\"stdev\":2.91034,\n\"percentile\":[[1,37],[5,46],[10,50],[25,50],[50,50],[75,51],[90,51],[95,51],[99,58]]\n}\n}\n",
+    "stderr" : "",
+    "returnCode" : 0
+  } ]
+}
