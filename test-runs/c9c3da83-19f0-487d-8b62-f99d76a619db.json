@@ -1,0 +1,58 @@
+{
+  "appBuildId" : "763dd2ef-406a-4373-bf72-76ff08d5a76d",
+  "testName" : "scala-template-lang",
+  "javaVersionExecution" : {
+    "command" : {
+      "program" : "<java8.home>/bin/java",
+      "args" : [ "-version" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412884219221,
+    "endTime" : 1412884219294,
+    "stdout" : "",
+    "stderr" : "java version \"1.8.0_20\"\nJava(TM) SE Runtime Environment (build 1.8.0_20-b26)\nJava HotSpot(TM) 64-Bit Server VM (build 25.20-b23, mixed mode)\n",
+    "returnCode" : 0
+  },
+  "serverExecution" : {
+    "command" : {
+      "program" : "bin/scala-bench",
+      "args" : [ ],
+      "workingDir" : "<tests.home>/scala-bench/target/universal/stage",
+      "env" : {
+        "JAVA_HOME" : "<java8.home>",
+        "JAVA_OPTS" : "-Xms1g -Xmx1g"
+      }
+    },
+    "startTime" : 1412884219296,
+    "endTime" : 1412884371081,
+    "stdout" : "Play server process ID is 40264\n[\u001B[37minfo\u001B[0m] play - Application started (Prod)\n[\u001B[37minfo\u001B[0m] play - Listening for HTTP on /0:0:0:0:0:0:0:0:9000\n",
+    "stderr" : "",
+    "returnCode" : 143
+  },
+  "wrkExecutions" : [ {
+    "command" : {
+      "program" : "wrk",
+      "args" : [ "-t16", "-c32", "-d30s", "-s<assets.home>/wrk_report.lua", "<server.url>/template/lang" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412884220912,
+    "endTime" : 1412884250921,
+    "stdout" : "Running 30s test @ http://localhost:9000/template/lang\n  16 threads and 32 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency   780.44us    1.39ms  43.03ms   95.00%\n    Req/Sec     3.47k     1.00k    5.51k    80.44%\n  1584441 requests in 30.00s, 190.39MB read\nRequests/sec:  52820.95\nTransfer/sec:      6.35MB\nJSON: {\n\"summary\":{\n\"duration\":29996453,\n\"requests\":1584441,\n\"bytes\":199639566,\n\"errors\":{\"connect\":0,\"read\":0,\"write\":0,\"status\":0,\"timeout\":0}\n},\n\"latency\":{\n\"min\":92,\n\"mean\":780.44,\n\"max\":43030,\n\"stdev\":1392.82,\n\"percentile\":[[1,134],[5,157],[10,179],[25,254],[50,428],[75,800],[90,1407],[95,2175],[99,6984]]\n},\n\"requests\":{\n\"min\":156,\n\"mean\":3468.98,\n\"max\":5512,\n\"stdev\":1002.78,\n\"percentile\":[[1,292],[5,880],[10,1952],[25,3311],[50,3736],[75,4093],[90,4368],[95,4511],[99,4775]]\n}\n}\n",
+    "stderr" : "",
+    "returnCode" : 0
+  }, {
+    "command" : {
+      "program" : "wrk",
+      "args" : [ "-t16", "-c32", "-d120s", "-s<assets.home>/wrk_report.lua", "<server.url>/template/lang" ],
+      "workingDir" : "<prune.home>",
+      "env" : { }
+    },
+    "startTime" : 1412884250922,
+    "endTime" : 1412884371030,
+    "stdout" : "Running 2m test @ http://localhost:9000/template/lang\n  16 threads and 32 connections\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\n    Latency   523.72us  524.53us  19.69ms   90.03%\n    Req/Sec     4.02k   686.58     8.90k    70.27%\n  7309174 requests in 2.00m, 0.86GB read\nRequests/sec:  60912.49\nTransfer/sec:      7.32MB\nJSON: {\n\"summary\":{\n\"duration\":119994665,\n\"requests\":7309174,\n\"bytes\":920955924,\n\"errors\":{\"connect\":0,\"read\":0,\"write\":0,\"status\":0,\"timeout\":0}\n},\n\"latency\":{\n\"min\":72,\n\"mean\":523.72,\n\"max\":19691,\n\"stdev\":524.526,\n\"percentile\":[[1,131],[5,151],[10,172],[25,234],[50,378],[75,665],[90,1047],[95,1317],[99,1951]]\n},\n\"requests\":{\n\"min\":0,\n\"mean\":4022.74,\n\"max\":8900,\n\"stdev\":686.58,\n\"percentile\":[[1,2333],[5,3000],[10,3200],[25,3600],[50,4000],[75,4444],[90,4888],[95,5111],[99,5666]]\n}\n}\n",
+    "stderr" : "",
+    "returnCode" : 0
+  } ]
+}
